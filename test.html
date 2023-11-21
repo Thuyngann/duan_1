@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Đăng Nhập</title>
+    <style>
+        .user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+#user-button {
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#user-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+#user-links a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+#user-links a:hover {
+    background-color: #ddd;
+}
+
+    </style>
+</head>
+<body>
+    <div class="user-menu">
+        <button id="user-button">Xin chào user</button>
+        <div class="user-links" id="user-links">
+            <a href="#">Cập nhật tài khoản</a>
+            <a href="#">Đăng xuất</a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById('user-button').addEventListener('click', function() {
+    var userLinks = document.getElementById('user-links');
+    if (userLinks.style.display === 'block') {
+        userLinks.style.display = 'none';
+    } else {
+        userLinks.style.display = 'block';
+    }
+});
+
+// Đóng danh sách liên kết nếu click bất kỳ đâu ngoài nó
+document.addEventListener('click', function(event) {
+    var userLinks = document.getElementById('user-links');
+    var userButton = document.getElementById('user-button');
+    if (event.target !== userLinks && event.target !== userButton) {
+        userLinks.style.display = 'none';
+    }
+});
+
+</script>
